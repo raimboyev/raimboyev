@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raimboyev — Veb-dasturchi portfolio, Xorazm</title>
 <meta name="description" content="Raimboyev — Xorazmda veb-saytlar yaratish va dizayn xizmatlari. Telegramda yozing yoki qo'ng'iroq qiling.">
-<link rel="canonical" href="https://saytim.com/">
+<link rel="canonical" href="https://raimboyebsardorbek1-del.github.io/raimboyev/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uz_UZ">
 <meta property="og:title" content="Raimboyev — Veb-dasturchi portfolio">
 <meta property="og:description" content="Raimboyev — Xorazmda veb-saytlar yaratish va dizayn xizmatlari.">
-<meta property="og:url" content="https://saytim.com/">
-<meta property="og:image" content="https://saytim.com/og.jpg">
-<meta name="theme-color" content="#0f766e">
+<meta property="og:url" content="https://raimboyebsardorbek1-del.github.io/raimboyev/">
+<meta property="og:theme-color" content="#0f766e">
 <style>
 :root{--accent:#0f766e;--bg:#fbfaf8;--fg:#1d2327;--muted:#5d676d;--card:#fff;--line:#e3e0da;--on:#fff}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#101516;--fg:#eceff0;--muted:#9aa5aa;--card:#171e20;--line:#2a3336;--accent:#2dd4bf;--on:#062a27}}
@@ -26,6 +25,9 @@ p{margin:0 0 1em}a{color:inherit}
 section{padding:64px 0}
 header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav{display:flex;gap:20px;align-items:center}
+.nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:0.95rem;transition:color .2s}
+.nav a:hover{color:var(--accent)}
 .logo{font-weight:800;text-decoration:none}
 button,.btn{font:inherit;cursor:pointer}
 .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--accent);background:var(--accent);color:var(--on);transition:transform .15s}
@@ -39,6 +41,20 @@ button,.btn{font:inherit;cursor:pointer}
 .grid{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border-top:1px solid var(--line)}
 .grid>div{padding:22px 20px 22px 0;border-bottom:1px solid var(--line)}
 .grid p,.steps p{color:var(--muted);margin:0}
+
+/* Portfolio loyihalar kartochkalari */
+.portfolio-grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:24px}
+.project-card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px -10px color-mix(in srgb,var(--fg) 15%,transparent);border-color:var(--accent)}
+.project-img{width:100%;height:180px;object-fit:cover;background:color-mix(in srgb,var(--accent) 10%,var(--card));display:grid;place-items:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line)}
+.project-body{padding:20px;display:flex;flex-direction:column;flex-grow:1}
+.project-body h3{margin:0 0 8px;font-size:1.25rem}
+.project-body p{color:var(--muted);font-size:0.95rem;margin:0 0 16px;flex-grow:1}
+.project-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tag{font-size:0.8rem;padding:4px 10px;border-radius:20px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);font-weight:600}
+.project-link{align-self:flex-start;text-decoration:none;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;font-size:0.95rem}
+.project-link:hover{text-decoration:underline}
+
 .steps{counter-reset:s;list-style:none;padding:0;margin:0;max-width:640px}
 .steps li{counter-increment:s;padding:0 0 26px 56px;position:relative}
 .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--on);display:grid;place-items:center;font-weight:800}
@@ -97,7 +113,12 @@ label{font-size:.85rem;color:var(--muted)}
 <div class="progress" aria-hidden="true"></div>
 <header class="top"><div class="wrap">
   <a class="logo" href="#top" data-t="brand">Raimboyev</a>
-  <button class="icon" id="theme" aria-label="Kunduzgi / tungi rejim">◐</button>
+  <div class="nav">
+    <a href="#projects">Portfolio</a>
+    <a href="#services">Xizmatlar</a>
+    <a href="#contact">Aloqa</a>
+    <button class="icon" id="theme" aria-label="Kunduzgi / tungi rejim">◐</button>
+  </div>
 </div></header>
 
 <main id="top">
@@ -106,8 +127,14 @@ label{font-size:.85rem;color:var(--muted)}
   <p class="lead" data-t="heroText"></p>
   <div class="cta">
     <a class="btn" data-link="tg" rel="noopener">Telegramda yozish</a>
-    <a class="btn ghost" data-link="tel">Qo'ng'iroq</a>
+    <a class="btn ghost" href="#projects">Mening ishlarim ↓</a>
   </div>
+</div></section>
+
+<!-- PORTFOLIO / MENING ISHLARIM -->
+<section id="projects" aria-labelledby="h-pr"><div class="wrap">
+  <h2 id="h-pr" data-t="projectsTitle">Mening ishlarim</h2>
+  <div class="portfolio-grid" id="projects-list"></div>
 </div></section>
 
 <section id="services" aria-labelledby="h-s"><div class="wrap">
@@ -163,7 +190,7 @@ label{font-size:.85rem;color:var(--muted)}
 
 <script type="module">
 /* =====================================================================
-   1) SOZLAMALAR
+   1) SOZLAMALAR — QILGAN ISHLARINGIZNI SHU YERGA YOZASIZ
    ===================================================================== */
 const FIREBASE_CONFIG = {
   apiKey: "YOUR_API_KEY",
@@ -181,11 +208,36 @@ const DEFAULT = {
   instagram: "@raimboyev.1",
   hours: "Dushanba–Juma, 09:00–18:00",
   address: "Xorazm viloyati, Qo'shko'pir, Obi hayot 32",
+  projectsTitle: "Mening ishlarim (Portfolio)",
   servicesTitle: "Xizmatlar",
   whyTitle: "Nega aynan men",
   stepsTitle: "Ish bosqichlari",
   faqTitle: "Ko'p so'raladigan savollar",
   contactTitle: "Aloqa",
+  // QILGAN ISHLARINGIZ RO'YXATI:
+  projects: [
+    {
+      title: "Saytim.com — Portfolio sayti",
+      desc: "Veb-dasturchi uchun shaxsiy vizitka sayt. Tungi/kunduzgi rejim va silliq animatsiyalar mavjud.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      link: "https://raimboyebsardorbek1-del.github.io/raimboyev",
+      image: "" // agar rasm havolasi bo'lsa qo'yishingiz mumkin
+    },
+    {
+      title: "Online Do'kon Landing Page",
+      desc: "Mahsulotlar katalogi, qulay buyurtma berish tugmalari va mobil moslashuvchan dizayn.",
+      tags: ["Landing Page", "E-tijorat", "UI/UX"],
+      link: "#",
+      image: ""
+    },
+    {
+      title: "Korxona Vizitka Sayti",
+      desc: "Kompaniya xizmatlari, mijozlar fikrlari va aloqa formasi bilan to'liq jihozlangan sayt.",
+      tags: ["Biznes", "SEO", "Responsive"],
+      link: "#",
+      image: ""
+    }
+  ],
   services: [
     {t: "Veb-sayt yaratish", d: "Zamonaviy, tezkor va mobil qurilmalarga moslashgan saytlar — vizitka, landing page, portfolio."},
     {t: "UI/UX dizayn", d: "Foydalanuvchiga qulay va chiroyli interfeys dizayni — Figma va boshqa zamonaviy vositalar yordamida."},
@@ -205,7 +257,7 @@ const DEFAULT = {
     {q: "Sayt qilish qancha turadi?", a: "Narx loyihaning murakkabligiga qarab farq qiladi. Oddiy vizitka sayt 500 ming so'mdan boshlanadi. Aniq narx uchun bog'laning."},
     {q: "Sayt qancha vaqtda tayyor bo'ladi?", a: "Oddiy sayt 3–5 kun ichida, murakkab loyihalar 1–2 hafta ichida tayyor bo'ladi."},
     {q: "Hosting va domen kerakmi?", a: "Ha, sayt uchun hosting va domen kerak. Tanlashda yordam beraman va eng yaxshi variantni tavsiya qilaman."},
-    {q: "Saytni o'zim boshqara olamanmi?", a: "Albatta! Admin panel orqali matnlar, rasmlar va boshqa ma'lumotlarni o'zingiz o'zgartira olasiz."}
+    {q: "Saytni o'zim boshqara olamanmi?", a: "Albatta! Matnlar, loyihalar va kontakt ma'lumotlarini osongina yangilab turishingiz mumkin."}
   ]
 };
 const ACCENT = null;
@@ -232,7 +284,7 @@ $("#theme").onclick = () => {
 document.documentElement.classList.add("js");
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
 function reveal() {
-  document.querySelectorAll("section h2,.grid>div,.steps li,details,.contact>*").forEach(n => {
+  document.querySelectorAll("section h2,.grid>div,.steps li,details,.contact>*, .project-card").forEach(n => {
     if (n.classList.contains("rv")) return;
     n.classList.add("rv"); n.style.setProperty("--d", (([...n.parentElement.children].indexOf(n)) % 6) * .09 + "s"); io.observe(n);
   });
@@ -248,7 +300,37 @@ function render(c) {
   document.querySelectorAll("[data-link=tg]").forEach(a => a.href = "https://t.me/" + handle(c.telegram));
   document.querySelectorAll("[data-link=ig]").forEach(a => a.href = "https://instagram.com/" + handle(c.instagram));
   document.querySelectorAll("[data-link=tel]").forEach(a => a.href = "tel:" + String(c.phone).replace(/[^\d+]/g, ""));
-  const fill = (id, arr, mk) => { const box = $(id); box.replaceChildren(...(arr || []).map(mk)); };
+  const fill = (id, arr, mk) => { const box = $(id); if(box) box.replaceChildren(...(arr || []).map(mk)); };
+  
+  // Loyihalar (Portfolio)
+  const renderProject = p => {
+    const card = el("div", "project-card");
+    if(p.image) {
+      const img = el("img", "project-img");
+      img.src = p.image; img.alt = p.title; img.loading = "lazy";
+      card.append(img);
+    } else {
+      const ph = el("div", "project-img", p.title || "Loyiha");
+      card.append(ph);
+    }
+    const b = el("div", "project-body");
+    b.append(el("h3", "", p.title));
+    b.append(el("p", "", p.desc));
+    if (p.tags && p.tags.length) {
+      const tgBox = el("div", "project-tags");
+      p.tags.forEach(t => tgBox.append(el("span", "tag", t)));
+      b.append(tgBox);
+    }
+    if (p.link && p.link !== "#") {
+      const a = el("a", "project-link", "Saytni ko'rish →");
+      a.href = p.link; a.target = "_blank"; a.rel = "noopener";
+      b.append(a);
+    }
+    card.append(b);
+    return card;
+  };
+  fill("#projects-list", c.projects, renderProject);
+
   const card = i => { const d = el("div"); d.append(el("h3", "", i.t), el("p", "", i.d)); return d; };
   fill("#services-list", c.services, card);
   fill("#why-list", c.why, card);
@@ -299,7 +381,7 @@ async function loadFirebase() {
 })();
 
 /* Admin paneli */
-const FIELDS = [["brand","Biznes nomi"],["heroTitle","Bosh sarlavha"],["heroText","Qisqa izoh","area"],["phone","Telefon"],["telegram","Telegram (@nom)"],["instagram","Instagram (@nom)"],["hours","Ish vaqti"],["address","Manzil"],["servicesTitle","Xizmatlar sarlavhasi"],["whyTitle","«Nega biz» sarlavhasi"],["stepsTitle","Bosqichlar sarlavhasi"],["faqTitle","Savollar sarlavhasi"],["contactTitle","Aloqa sarlavhasi"]];
+const FIELDS = [["brand","Biznes nomi"],["heroTitle","Bosh sarlavha"],["heroText","Qisqa izoh","area"],["phone","Telefon"],["telegram","Telegram (@nom)"],["instagram","Instagram (@nom)"],["hours","Ish vaqti"],["address","Manzil"],["projectsTitle","Mening ishlarim sarlavhasi"],["servicesTitle","Xizmatlar sarlavhasi"],["whyTitle","«Nega biz» sarlavhasi"],["stepsTitle","Bosqichlar sarlavhasi"],["faqTitle","Savollar sarlavhasi"],["contactTitle","Aloqa sarlavhasi"]];
 const LISTS = [["services","Xizmatlar","t","Nomi","d","Tavsif"],["why","Nega biz","t","Sabab","d","Izoh"],["steps","Ish bosqichlari","t","Bosqich","d","Izoh"],["faq","Savol-javoblar","q","Savol","a","Javob"]];
 let draft = null;
 
